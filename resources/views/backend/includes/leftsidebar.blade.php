@@ -21,7 +21,7 @@
                   </a>
 
                   <ul class="nav-submenu menu-content">
-                  <li><a href="{{route('all.blog')}}"><i class="fa fa-list-ol"></i> Manage Category</a></li>
+                  <li><a href="{{route('manage.procat')}}"><i class="fa fa-list-ol"></i> Manage Category</a></li>
                   <li><a href="{{route('all.blog')}}"><i class="fa fa-plus-square"></i> Manage Sub Category</a></li>
                   <li><a href="{{route('all.blog')}}"><i class="fa fa-tag"></i> Manage Brand</a></li>
 

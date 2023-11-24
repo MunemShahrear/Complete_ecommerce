@@ -45,6 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('backend.pages.dashboard');
     })->name('dashboard');
+    //product manage start here
+    Route::get('/product/all/Categories', function () {
+        return view('backend.pages.product.proCat');
+    })->name('manage.procat');
+
+    
+ //product manage End here
+
+
     //blog route
                 Route::get('/blog', function () {
                     return view('backend.pages.blog.allBlog');

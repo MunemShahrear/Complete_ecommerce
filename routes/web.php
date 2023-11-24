@@ -6,17 +6,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProCatController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('index');
@@ -45,14 +36,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('backend.pages.dashboard');
     })->name('dashboard');
-    //product manage start here
+    //Manage product category start here
+
     Route::get('/product/all/Categories', function () {
         return view('backend.pages.product.proCat');
     })->name('manage.procat');
-
     
- //product manage End here
+    Route::get('product/create/category', function () {
+        return view('backend.pages.product.createCategory');
+     })->name('create.proCategory');
+    
+ //manage product categoryEnd here
 
+  //product Category route Start
+  Route::post('product/create/category', [ProCatController::class, 'createProCategory'])->name('create.proCategory');
+  Route::post('product/category/{id}', [ProCatController::class,'destroyProCat'])->name('destroy.proCategory');
+  
+  //Route::get('/show/result/', [ProCatController::class, 'sortProCat'])->name('sort.proCategory');
+  //product Category route End
 
     //blog route
                 Route::get('/blog', function () {

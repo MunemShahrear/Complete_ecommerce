@@ -3,10 +3,8 @@
     Dashboard
 @endsection
 @section('body-content')
-<div class="container card">
-<div class="content-container p-4 ">
-      <h3 class=" text-center">All Blog's</h3><br>
-    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by title...">
+<div class="container card ">
+    <div class="content-container p-4 ">
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -18,48 +16,61 @@
         {{ session('error') }}
     </div>
 @endif
-<div class="table-responsive"><!-- Table -->
-    <table class="table table-bordered table-striped">
+      <h3 class=" text-center">Create new Product Category</h3><br>
+      <form action="{{ route('create.proCategory')}}" method="POST"  enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+          <label for="blogCategory">Product Category:</label>
+          <input type="text" class="form-control" id="pro_category" name="pro_category" placeholder="Enter the Product Category" required>
+        </div>
+       
+        
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form><hr>
+
+
+
+
+      <!-- <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by title..."> -->
+  
+    <!-- Table -->
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>SN</th>
-          <th>Thumbnail</th>
-          <th>Blog Title</th>
-          <th>Category</th>
-          <th>Published Date</th>
+          <th>Category Name</th>
+         
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
       @php
-      $blogs = App\Models\Blog::orderBy('created_at', 'desc')->get();
+      $cats = App\Models\Procategory::orderBy('created_at', 'asc')->get();
     
         $count=0;
      @endphp
         <!-- Table rows with data -->
-        @foreach( $blogs as $blog)
+        @foreach( $cats as $category)
         @php
      
         $count++;
         @endphp
         <tr>
           <td>{{ $count }}</td>
-          <td><img src="{{ asset('uploads/'. $blog->blog_image) }}" alt="Blog Image" width="50"></td>
-          <td> {{ $blog->blog_title }}</td>
-          <td> {{ $blog->blog_Cat }}</td>
-          <td> {{ date('d M y', strtotime($blog->created_at)) }}</td>
+          <td> {{ $category->proCat_name }}</td>
+  
           <td>
          
-          <div class="d-flex">
-    <a href="{{ route('edit.blog', $blog->id) }}" class="mr-2">
-        <button class="btn btn-primary btn-sm" style="margin-right:10px; padding:5px; "><i class="fa fa-pencil"></i> </button>
-    </a>
-    <form method="post" action="{{ route('blog.destroy', $blog->id) }}">
-        @csrf
-        <input type="hidden" name="id" value="{{ $blog->id }}">
-        <button type="submit" class="btn btn-danger btn-sm "style=" padding:5px; "><i class="fa fa-trash-o"> </i></button>
-    </form>
-</div>
+          <!-- <a href="">
+              <button class="btn btn-primary btn-sm">Edit</button>
+          </a> -->
+         
+          <form method="post" action="{{ route('destroy.proCategory',$category->id) }}">
+            @csrf
+            <input type="hidden" name="id" value="{{ $category->id }}">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>  
           
           </td>
         </tr>
@@ -67,11 +78,13 @@
         
         <!-- Add more rows as needed -->
       </tbody>
-    </table> </div>
+    </table> 
     </div>
-  </div><br>
+    
+  </div>
+ 
 
-
+  <!-- Add Bootstrap JS and jQuery scripts (optional but may be required for certain features) -->
  
 
 @endsection

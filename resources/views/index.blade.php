@@ -523,18 +523,18 @@
                     ]
                 }'>
                     <div class="slide-item slide-item-bag position-relative">
-                        <img class="slide-img d-none d-md-block" src="{{asset('main_view/assets/img/slideshow/f1.jpg')}}" alt="slide-1">
-                        <img class="slide-img d-md-none" src="{{asset('main_view/assets/img/slideshow/f1-m.jpg')}}" alt="slide-1">
+                        <img class="slide-img d-none d-md-block" src="{{asset('main_view/assets/img/slideshow/h1.jpg')}}" alt="slide-1">
+                        <img class="slide-img d-md-none" src="{{asset('main_view/assets/img/slideshow/h1-m.jpg')}}" alt="slide-1">
                         <div class="content-absolute content-slide">
                             <div class="container height-inherit d-flex align-items-center justify-content-end">
-                                <div class="content-box slide-content slide-content-1 py-4">
+                                <div class="content-box slide-content slide-content-1 py-4 text-center">
                                     <h2 class="slide-heading heading_72 animate__animated animate__fadeInUp"
                                         data-animation="animate__animated animate__fadeInUp">
-                                        Discover The Best Furniture
+                                        Discover The Best Printer
                                     </h2>
                                     <p class="slide-subheading heading_24 animate__animated animate__fadeInUp"
                                         data-animation="animate__animated animate__fadeInUp">
-                                        Look for your inspiration here
+                                        Look for your Best Technology
                                     </p>
                                     <a class="btn-primary slide-btn animate__animated animate__fadeInUp"
                                         href="collection-left-sidebar.html"
@@ -552,11 +552,11 @@
                                 <div class="content-box slide-content slide-content-1 py-4 text-center">
                                     <h2 class="slide-heading heading_72 animate__animated animate__fadeInUp"
                                         data-animation="animate__animated animate__fadeInUp">
-                                        Discover The Best Furniture
+                                        Discover The Best Toner
                                     </h2>
                                     <p class="slide-subheading heading_24 animate__animated animate__fadeInUp"
                                         data-animation="animate__animated animate__fadeInUp">
-                                        Look for your inspiration here
+                                       
                                     </p>
                                     <a class="btn-primary slide-btn animate__animated animate__fadeInUp"
                                         href="collection-left-sidebar.html"
@@ -1618,7 +1618,7 @@
                             <li class="footer-menu-item"><a href="about-us.html">Privacy policy</a></li>
                             <li class="footer-menu-item"><a href="about-us.html">Terms & Conditions</a></li>
                         </ul>
-                        <p class="copyright footer-text">©<span class="current-year"></span> Spree Themes.</p>
+                        <p class="copyright footer-text">©<span class="current-year"></span> Umbrella Technology Designed by Byte Engineers.</p>
                     </div>
                 </div>
             </div>

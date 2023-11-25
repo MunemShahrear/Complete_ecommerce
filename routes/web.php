@@ -7,6 +7,7 @@ use App\Http\Controllers\ProController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProCatController;
+use App\Http\Controllers\ProSubCatController;
 
 
 Route::get('/', function () {
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('backend.pages.dashboard');
     })->name('dashboard');
-    //Manage product category start here
+    //Manage product category start here 
 
     Route::get('/product/all/Categories', function () {
         return view('backend.pages.product.proCat');
@@ -50,10 +51,30 @@ Route::middleware('auth')->group(function () {
 
   //product Category route Start
   Route::post('product/create/category', [ProCatController::class, 'createProCategory'])->name('create.proCategory');
-  Route::post('product/category/{id}', [ProCatController::class,'destroyProCat'])->name('destroy.proCategory');
+  Route::post('product/category/destroy', [ProCatController::class,'destroyProCat'])->name('destroy.proCat');
   
-  //Route::get('/show/result/', [ProCatController::class, 'sortProCat'])->name('sort.proCategory');
   //product Category route End
+
+
+  //Manage product category start here 
+
+  Route::get('/product/Sub/Categories', function () {
+    return view('backend.pages.subCat.proSubCat');
+})->name('manage.proSubCat');
+
+Route::get('product/create/sub/category', function () {
+    return view('backend.pages.product.createCategory');
+ })->name('create.proSubCategory');
+
+
+  //product Sub Category route Start
+  Route::post('product/create/sub/category', [ProSubCatController::class, 'createSubProCategory'])->name('create.proSubCategory');
+  Route::post('product/category', [ProSubCatController::class,'destroySubProCat'])->name('destroy.proSubCategory');
+  
+  //product Category route End
+
+//manage product categoryEnd here
+
 
     //blog route
                 Route::get('/blog', function () {

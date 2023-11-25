@@ -21,6 +21,7 @@
         <div class="form-group">
             <label for="category">Category:</label>
             <select class="form-control" id="blog_category" name="blog_category" required>
+            
             @foreach( $cats as $category)
         @php
      

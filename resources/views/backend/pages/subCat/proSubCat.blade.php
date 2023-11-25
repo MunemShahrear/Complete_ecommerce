@@ -16,12 +16,33 @@
         {{ session('error') }}
     </div>
 @endif
-      <h3 class=" text-center">Create new Product Category</h3><br>
-      <form action="{{ route('create.proCategory')}}" method="POST"  enctype="multipart/form-data">
+      <h3 class=" text-center">Add new Sub Category</h3><br>
+      <form action="{{ route('create.proSubCategory')}}" method="POST"  enctype="multipart/form-data">
         @csrf
+        @php
+      $cats = App\Models\Procategory::orderBy('created_at', 'asc')->get();
+    
+        $count=0;
+     @endphp
         <div class="form-group">
-          <label for="blogCategory">Product Category:</label>
-          <input type="text" class="form-control" id="pro_category" name="pro_category" placeholder="Enter the Product Category" required>
+            <label for="category">Choose Main Category:</label>
+            <select class="form-control" id="main_category" name="main_category" required>
+            <option >Choose a category</option>
+            @foreach( $cats as $category)
+        @php
+     
+        $count++;
+        @endphp    
+            <option value="{{ $category->id }}">{{ $category->proCat_name }}</option>
+            
+            @endforeach
+                <!-- Add more category options as needed -->
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="blogCategory">Product Sub Category:</label>
+          <input type="text" class="form-control" id="pro_Subcategory" name="pro_Subcategory" placeholder="Enter the Product Category" required>
         </div>
        
         
@@ -46,7 +67,7 @@
       </thead>
       <tbody>
       @php
-      $cats = App\Models\Procategory::orderBy('created_at', 'asc')->get();
+      $cats = App\Models\Prosubcategory::orderBy('created_at', 'asc')->get();
     
         $count=0;
      @endphp
@@ -58,7 +79,7 @@
         @endphp
         <tr>
           <td>{{ $count }}</td>
-          <td> {{ $category->proCat_name }}</td>
+          <td> {{ $category->proSubCat_name }}</td>
   
           <td>
          
@@ -66,7 +87,7 @@
               <button class="btn btn-primary btn-sm">Edit</button>
           </a> -->
          
-          <form method="post" action="{{ route('destroy.proCat') }}">
+          <form method="post" action="{{ route('destroy.proSubCategory') }}">
             @csrf
             <input type="hidden" name="id" value="{{ $category->id }}">
             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

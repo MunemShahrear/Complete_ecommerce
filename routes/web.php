@@ -8,7 +8,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProCatController;
 use App\Http\Controllers\ProSubCatController;
-
+use App\Http\Controllers\ProBrandController;
 
 Route::get('/', function () {
     return view('index');
@@ -42,10 +42,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/product/all/Categories', function () {
         return view('backend.pages.product.proCat');
     })->name('manage.procat');
-    
-    Route::get('product/create/category', function () {
-        return view('backend.pages.product.createCategory');
-     })->name('create.proCategory');
+
+    Route::get('/product/all/brand', function () {
+        return view('backend.pages.product.proBrand');
+    })->name('manage.brand');
+    //Manage product Sub category start here 
+
+  Route::get('/product/Sub/Categories', function () {
+    return view('backend.pages.product.proSubCat');})->name('manage.proSubCat');
+
+  //product Sub Category route Start
+ 
     
  //manage product categoryEnd here
 
@@ -56,21 +63,13 @@ Route::middleware('auth')->group(function () {
   //product Category route End
 
 
-  //Manage product category start here 
-
-  Route::get('/product/Sub/Categories', function () {
-    return view('backend.pages.subCat.proSubCat');
-})->name('manage.proSubCat');
-
-Route::get('product/create/sub/category', function () {
-    return view('backend.pages.product.createCategory');
- })->name('create.proSubCategory');
-
-
-  //product Sub Category route Start
+  
   Route::post('product/create/sub/category', [ProSubCatController::class, 'createSubProCategory'])->name('create.proSubCategory');
   Route::post('product/category', [ProSubCatController::class,'destroySubProCat'])->name('destroy.proSubCategory');
   
+
+  Route::post('product/create/brand', [ProBrandController::class, 'createBrand'])->name('create.proBrand');
+  Route::post('product/destroy/brand', [ProBrandController::class,'destroyBrand'])->name('destroy.ProBrand');
   //product Category route End
 
 //manage product categoryEnd here

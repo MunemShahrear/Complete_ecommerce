@@ -16,12 +16,13 @@
         {{ session('error') }}
     </div>
 @endif
-      <h3 class=" text-center">Create new Category</h3><br>
-      <form action="{{ route('blog.category')}}" method="POST"  enctype="multipart/form-data">
+      <h3 class=" text-center">Add new Brand</h3><br>
+      <form action="{{ route('create.proBrand')}}" method="POST"  enctype="multipart/form-data">
         @csrf
+       
         <div class="form-group">
-          <label for="blogCategory">Blog Category:</label>
-          <input type="text" class="form-control" id="blog_category" name="blog_category" placeholder="Enter the blog Category" required>
+          <label for="blogCategory">Product Sub Category:</label>
+          <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter the Brand Name" required>
         </div>
        
         
@@ -39,14 +40,14 @@
       <thead>
         <tr>
           <th>SN</th>
-          <th>Name</th>
+          <th>Category Name</th>
          
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
       @php
-      $cats = App\Models\Category::orderBy('created_at', 'asc')->get();
+      $cats = App\Models\proBrand::orderBy('created_at', 'asc')->get();
     
         $count=0;
      @endphp
@@ -58,7 +59,7 @@
         @endphp
         <tr>
           <td>{{ $count }}</td>
-          <td> {{ $category->cat_name }}</td>
+          <td> {{ $category->brand_name }}</td>
   
           <td>
          
@@ -66,7 +67,7 @@
               <button class="btn btn-primary btn-sm">Edit</button>
           </a> -->
          
-          <form method="post" action="{{ route('category.destroy',$category->id) }}">
+          <form method="post" action="{{ route('destroy.ProBrand') }}">
             @csrf
             <input type="hidden" name="id" value="{{ $category->id }}">
             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -5,6 +5,7 @@
 @section('body-content')
 <div class="container card ">
     <div class="content-container p-4 ">
+   
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -32,15 +33,16 @@
 
 
 
-      <!-- <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by title..."> -->
+      <!-- <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by title...">  -->
   
     <!-- Table -->
-    <table class="table table-striped">
-      <thead>
+    <div class="table-responsive"><!-- Table -->
+   
+    <table class="table-hover table table-striped border">
+      <thead >
         <tr>
           <th>SN</th>
           <th>Category Name</th>
-         
           <th>Action</th>
         </tr>
       </thead>
@@ -69,7 +71,7 @@
           <form method="post" action="{{ route('destroy.proCat') }}">
             @csrf
             <input type="hidden" name="id" value="{{ $category->id }}">
-            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
           </form>  
           
           </td>
@@ -79,6 +81,7 @@
         <!-- Add more rows as needed -->
       </tbody>
     </table> 
+    </div>
     </div>
     
   </div>

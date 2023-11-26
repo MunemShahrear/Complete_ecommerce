@@ -46,6 +46,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/product/all/brand', function () {
         return view('backend.pages.product.proBrand');
     })->name('manage.brand');
+
+
+    Route::get('/product/Manage', function () {
+        return view('backend.pages.product.productAdd');
+    })->name('manage.product');
     //Manage product Sub category start here 
 
   Route::get('/product/Sub/Categories', function () {

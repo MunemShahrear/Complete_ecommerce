@@ -17,15 +17,15 @@
             <li class="dropdown">
                   <a class="nav-link menu-title" href="javascript:void(0)">
                      <i class="fa fa-laptop"></i>
-                      <span style="margin-left: 5px;">Manage Product</span>
+                      <span style="margin-left: 5px;">Product Management </span>
                   </a>
 
                   <ul class="nav-submenu menu-content">
                   <li><a href="{{route('manage.procat')}}"><i class="fa fa-list-ol"></i> Manage Category</a></li>
                   <li><a href="{{route('manage.proSubCat')}}"><i class="fa fa-plus-square"></i> Manage Sub Category</a></li>
-                  <li><a href="{{route('manage.brand')}}"><i class="fa fa-tag"></i> Manage Brand</a></li>
+                  <li><a href="{{route('manage.brand')}}"><i class="fa fa-tag"></i> Manage Brands</a></li>
 
-                    <li><a href="{{route('all.blog')}}"><i class="fa fa-laptop"></i>Manage product</a></li>
+                    <li><a href="{{route('manage.product')}}"><i class="fa fa-laptop"></i>Manage products</a></li>
                   </ul>
 
             </li>

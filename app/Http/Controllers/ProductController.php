@@ -24,12 +24,20 @@ class ProductController extends Controller
         $product->pro_waranty = $request->pro_waranty;
         $product->pro_datasheet = $request->pro_datasheet;
         $product->pro_img1 = $request->pro_img1;
+        if ($request->hasFile('pro_img1')) {
+            $image = $request->file('pro_img1');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $imageName); // Store the image in the 'uploads' directory
+            // You can also save the image details to a database if needed
+            // return 'Image uploaded successfully';
+            $product->pro_img1 = $imageName;
+        }
         $product->pro_desc = $request->pro_desc;
        $product->save();
        return redirect()->route('all.product')->with('success', 'Product Added successfully.');
 
     }
-    public function destroyProCat(Request $request)
+    public function destroyProduct(Request $request)
             {
                 $item = Product::find($request->id);
                 //dd($item);

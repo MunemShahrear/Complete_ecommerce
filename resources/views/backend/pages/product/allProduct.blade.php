@@ -60,8 +60,12 @@
         <tr>
             <td>{{ $count }}</td>
             <td>{{ $product->pro_title }}</td>
+
+          
+
+
             <td>{{ $product->pro_brand }}</td>
-            <td><img href="{{ $product->pro_img1 }}"></td>
+            <td><img src="{{ asset('uploads/'. $products[0]->pro_img1) }}" alt="product_Image" width="50"></td>
             <td>{{ $product->pro_qty }}</td>
             
 
@@ -70,7 +74,7 @@
                   <button class="btn btn-primary btn-sm">Edit</button>
               </a> 
          
-              <form method="post" action="{{ route('destroy.proSubCategory') }}">
+              <form method="post" action="{{ route('destroy.product') }}">
                 @csrf
                 <input type="hidden" name="id" value="{{ $product->id }}">
                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>

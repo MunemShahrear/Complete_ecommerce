@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProCatController;
 use App\Http\Controllers\ProSubCatController;
 use App\Http\Controllers\ProBrandController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('index');
@@ -49,12 +50,21 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/product/Manage', function () {
+        return view('backend.pages.product.allProduct');
+    })->name('all.product');
+
+    Route::get('/product/new/create', function () {
         return view('backend.pages.product.productAdd');
-    })->name('manage.product');
+    })->name('add.product');
+
+    Route::post('product/create', [ProductController::class, 'createProduct'])->name('create.product');
+    Route::post('product/destroy', [ProductController::class,'destroyProduct'])->name('destroy.product');
+
     //Manage product Sub category start here 
 
   Route::get('/product/Sub/Categories', function () {
     return view('backend.pages.product.proSubCat');})->name('manage.proSubCat');
+
 
   //product Sub Category route Start
  

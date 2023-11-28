@@ -25,7 +25,7 @@
                   <li><a href="{{route('manage.proSubCat')}}"><i class="fa fa-plus-square"></i> Manage Sub Category</a></li>
                   <li><a href="{{route('manage.brand')}}"><i class="fa fa-tag"></i> Manage Brands</a></li>
 
-                    <li><a href="{{route('manage.product')}}"><i class="fa fa-laptop"></i>Manage products</a></li>
+                    <li><a href="{{route('all.product')}}"><i class="fa fa-laptop"></i>Manage products</a></li>
                   </ul>
 
             </li>

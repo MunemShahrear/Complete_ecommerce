@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/blogs', function () {
     return view('frontend.pages.webBlog');
 })->name('web.blog');
+Route::get('/Products/Search', function () {
+    return view('main_View.pages.proSearch');
+})->name('search.product');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

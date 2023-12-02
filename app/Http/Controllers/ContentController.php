@@ -45,8 +45,14 @@ class ContentController extends Controller
                     // return 'Image uploaded successfully';
                     $content->about_image = $imageName;
                 }
-                if (isset($validatedData['about_intro'])) {
-                    $content->about_intro = $validatedData['about_intro'];
+                
+                if ($request->hasFile('about_intro')) {
+                    $image = $request->file('about_intro');
+                    $imageName = time() . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('uploads'), $imageName); // Store the image in the 'uploads' directory
+                    // You can also save the image details to a database if needed
+                    // return 'Image uploaded successfully';
+                    $content->about_intro = $imageName;
                 }
 
                 $content->save();

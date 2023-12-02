@@ -47,7 +47,7 @@
              <!-- Blog Area Start-->
              
            <!-- Profile Area Start-->
-            <li class="dropdown">
+            <!-- <li class="dropdown">
                   <a class="nav-link menu-title" href="javascript:void(0)">
                       <i class="fa fa-user"></i>
                       <span style="margin-left: 5px;">Manage Profile</span>
@@ -56,9 +56,9 @@
                   <ul class="nav-submenu menu-content">
                     <li><a href="{{route('edit.profile')}}"><i class="fa fa-edit"></i>Edit profile</a></li>
                  
-                  </ul>
+                  </ul> 
 
-            </li>
+            </li> -->
              <!-- Profile Area Start-->
 
              <!-- Banner Area Start-->
@@ -69,7 +69,7 @@
                   </a>
 
                   <ul class="nav-submenu menu-content">
-                    <li><a href="{{route('manage.content')}}"><i class="fa fa-file-text-o"></i> Change Content</a></li>
+                    <li><a href="{{route('manage.content')}}"><i class="fa fa-file-text-o"></i> Edit Slider</a></li>
                   </ul>
 
             </li>

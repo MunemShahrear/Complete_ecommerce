@@ -1,3 +1,6 @@
+
+                            
+
 <div class="modal fade" tabindex="-1" id="quickview-modal">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">

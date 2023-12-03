@@ -38,8 +38,8 @@
           <input type="text" class="form-control" id="blog_key" name="blog_key" placeholder="Enter keywords" required>
         </div>
         <div class="form-group">
-          <label for="blogLink">Link to the Blog:</label>
-          <input type="url" class="form-control" id="blog_link" name="blog_link" placeholder="Enter the blog URL" required>
+          <label for="blogLink">Blog Description:</label>
+          <input type="textarea" class="form-control" id="blog_link" name="blog_link" placeholder="Enter the Description" required>
         </div>
        
 

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('pro_waranty')->nullable();
             $table->string('pro_datasheet')->nullable();
             $table->string('pro_img1')->nullable();
-            $table->string('pro_desc')->nullable();
+            $table->text('pro_desc')->nullable();
             $table->string('pro_status')->nullable();
             $table->string('pro_discount')->nullable();
             $table->timestamps();

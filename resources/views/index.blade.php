@@ -175,12 +175,12 @@
                         <div class="grid-container-2">
                             <a class="grid-item grid-item-1 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
                                 data-aos="fade-right" data-aos-duration="700">
-                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/banner/f1.jpg')}}" alt="banner-1">
+                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro1.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">
                                     <div class="container height-inherit d-flex">
                                         <div class="content-box banner-content p-4">
-                                            <h2 class="heading_34 primary-color">20% Off On <br>New Chair</h2>
-                                            <p class="text_14 mt-2 primary-color">Get Instant Cashback</p>
+                                            <h2 class="heading_34 primary-color">Printer</h2>
+                                            <!-- <p class="text_14 mt-2 primary-color">Get the best Product</p> -->
                                             <span class="text_12 mt-4 link-underline d-block primary-color">
                                                 VIEW MORE
                                             </span>
@@ -190,12 +190,12 @@
                             </a>
                             <a class="grid-item grid-item-2 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
                                 data-aos="fade-right" data-aos-duration="700">
-                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/banner/f3.jpg')}}" alt="banner-1">
+                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro2.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">
                                     <div class="container height-inherit d-flex justify-content-end">
                                         <div class="content-box banner-content p-4 text-end">
-                                            <h2 class="heading_34 primary-color">Let’s buy <br>New Chair</h2>
-                                            <p class="text_14 mt-2 primary-color">Get Instant Cashback</p>
+                                            <h2 class="heading_34 primary-color">Toner</h2>
+                                            <!-- <p class="text_14 mt-2 primary-color">Get Instant Cashback</p> -->
                                             <span class="text_12 mt-4 link-underline d-block primary-color">
                                                 VIEW MORE
                                             </span>
@@ -205,12 +205,12 @@
                             </a>
                             <a class="grid-item grid-item-3 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
                                 data-aos="fade-left" data-aos-duration="700">
-                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/banner/f2.jpg')}}" alt="banner-1">
+                                <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro3.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">
                                     <div class="container height-inherit d-flex">
                                         <div class="content-box banner-content p-4">
-                                            <h2 class="heading_34 primary-color">Let’s buy <br>New Chair</h2>
-                                            <p class="text_14 mt-2 primary-color">Get Instant Cashback</p>
+                                            <h2 class="heading_34 primary-color">UPS</h2>
+                                            <!-- <p class="text_14 mt-2 primary-color">Get Instant Cashback</p> -->
                                             <span class="text_12 mt-4 link-underline d-block primary-color">
                                                 VIEW MORE
                                             </span>
@@ -233,7 +233,7 @@
                         </div>
                         <div class="row">
                         @php
-                            $products = App\Models\Product::orderBy('created_at', 'asc')->get();
+                        $products = App\Models\Product::orderBy('created_at', 'asc')->take(4)->get();
                             $count = 0;
                             $droppercent=0;
                         @endphp
@@ -326,18 +326,18 @@
             <!-- collection end -->
 
             <!-- shop by category start -->
-            <div class="shop-category mt-100 overflow-hidden">
+            <!-- <div class="shop-category mt-100 overflow-hidden">
                 <div class="collection-tab-inner mt-0">
                     <div class="container">
                         <div class="section-header text-center">
-                            <h2 class="section-heading primary-color">Shop By Category</h2>
+                            <h2 class="section-heading primary-color">Best Selling Product</h2>
                         </div>
                         <div class="shop-category-2 shop-category-inner">
                                 
                             <div class="scattered-item" data-aos="fade-left" data-aos-duration="700">
                                 <div class="scattered-wrapper">
                                     <div class="scattered-content">
-                                        <img class="scattered-img" src="{{asset('main_view/assets/img/banner/f4.jpg')}}" alt="img">
+                                        <img class="scattered-img" src="{{asset('main_view/assets/img/slideshow/img3.jpg')}}" alt="img">
                                     </div>
                                     <div class="scattered-details">
                                         <h2 class="scattered-heading primary-color">UPS</h2>
@@ -351,7 +351,7 @@
                             <div class="scattered-item" data-aos="fade-right" data-aos-duration="700">
                                 <div class="scattered-wrapper">
                                     <div class="scattered-content">
-                                        <img class="scattered-img" src="{{asset('main_view/assets/img/banner/f5.jpg')}}" alt="img">
+                                        <img class="scattered-img" src="{{asset('main_view/assets/img/slideshow/img1.jpg')}}" alt="img">
                                     </div>
                                     <div class="scattered-details">
                                         <h2 class="scattered-heading primary-color">Printer</h2>
@@ -364,7 +364,7 @@
                             <div class="scattered-item" data-aos="fade-left" data-aos-duration="700">
                                 <div class="scattered-wrapper">
                                     <div class="scattered-content">
-                                        <img class="scattered-img" src="{{asset('main_view/assets/img/banner/f6.jpg')}}" alt="img">
+                                        <img class="scattered-img" src="{{asset('main_view/assets/img/slideshow/img2.jpg')}}" alt="img">
                                     </div>
                                     <div class="scattered-details">
                                         <h2 class="scattered-heading primary-color">Toner</h2>
@@ -377,13 +377,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- shop by category end -->
 
             <!-- video start -->
             <div class="video-section mt-100 overflow-hidden">
                 <div class="overlay-furniture section-spacing"
-                    style="background: url('{{asset('main_view/assets/img/videobg.jpg')}}') no-repeat fixed bottom center/cover">
+                    style="background: url('{{asset('main_view/assets/img/slideshow/img8.jpg')}}') no-repeat fixed bottom center/cover">
                     <div class="container video-container">
                         <div class="row">
                             <div class="col-12">
@@ -623,7 +623,7 @@
 
 
                             @php
-                            $blogs = App\Models\Blog::orderBy('created_at', 'asc')->get();
+                            $blogs = App\Models\Blog::orderBy('created_at', 'desc')->get();
                             $count = 0;
                            
                         @endphp

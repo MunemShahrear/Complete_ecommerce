@@ -17,6 +17,7 @@
     </div>
 @endif
       <h3 class=" text-center">Add new Sub Category</h3><br>
+      
       <form action="{{ route('create.proSubCategory')}}" method="POST"  enctype="multipart/form-data">
         @csrf
         @php
@@ -26,6 +27,7 @@
      @endphp
         <div class="form-group">
             <label for="category">Choose Main Category:</label>
+            
             <select class="form-control" id="main_category" name="main_category" required>
             <option >Choose a category</option>
             @foreach( $cats as $category)

@@ -21,6 +21,15 @@
         <div class="col-md-3">
         <a href="{{route('add.product')}}" class=" col-md-12 btn btn-primary"><i class="fa fa-plus"></i>     Add Product</a><br>
         </div>
+        <div class="col-md-3">
+        <a href="{{route('manage.procat')}}" class=" col-md-12 btn btn-secondary"><i class="fa fa-plus"></i>     Add Category</a><br>
+        </div>
+        <div class="col-md-3">
+        <a href="{{route('manage.proSubCat')}}" class=" col-md-12 btn btn-primary"><i class="fa fa-plus"></i> SubCategory</a><br>
+        </div>
+        <div class="col-md-3">
+        <a href="{{route('manage.brand')}}" class=" col-md-12 btn btn-primary"><i class="fa fa-plus"></i>     Add Brand</a><br>
+        </div>
 
      </div>
      <div class="row">
@@ -65,19 +74,19 @@
 
 
             <td>{{ $product->pro_brand }}</td>
-            <td><img src="{{ asset('uploads/'. $products[0]->pro_img1) }}" alt="product_Image" width="50"></td>
+            <td><img src="{{ asset('uploads/'. $product->pro_img1) }}" alt="product_Image" width="50"></td>
             <td>{{ $product->pro_qty }}</td>
             
 
           <td>
-              <a href="">
+              <!-- <a href="">
                   <button class="btn btn-primary btn-sm">Edit</button>
-              </a> 
+              </a>  -->
          
               <form method="post" action="{{ route('destroy.product') }}">
                 @csrf
                 <input type="hidden" name="id" value="{{ $product->id }}">
-                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
               </form>  
           
           </td>

@@ -50,8 +50,31 @@
                         <div class="col-lg-9 col-md-12 col-12">
                             <div class="filter-sort-wrapper d-flex justify-content-between flex-wrap">
                                 <div class="collection-title-wrap d-flex align-items-end">
-                                    <h2 class="collection-title heading_24 mb-0">All products</h2>
-                                    <p class="collection-counter text_16 mb-0 ms-2">(237 items)</p>
+                                    
+                                @php
+                                $proCategory = request()->query('pro_category');
+                                $productsQuery = App\Models\Product::orderBy('created_at', 'asc');
+
+                                // If pro_category is set, filter products by pro_category
+                                if ($proCategory) {
+                                    $productsQuery->where('main_category', $proCategory);
+                                }
+
+                                $products = $productsQuery->get();
+                                $count = 0;
+                                $droppercent = 0;
+                            @endphp
+
+                            <!-- Table rows with data -->
+                            @foreach($products as $product)
+                                @php
+                                    $count++;
+                                    $droppercent = (($product->pro_price - $product->pro_sprice) / $product->pro_price) * 100;
+                                @endphp
+                                
+                                @endforeach
+                                <h2 class="collection-title heading_24 mb-0">All products</h2>
+                                    <p class="collection-counter text_16 mb-0 ms-2">{{$count}} Items</p>
                                 </div>
                                 <div class="filter-sorting">
                                     <div class="collection-sorting position-relative d-none d-lg-block">
@@ -94,19 +117,25 @@
                             <div class="collection-product-container">
                                 <div class="row">
                                 @php
-                            $products = App\Models\Product::orderBy('created_at', 'asc')->get();
-                            $count = 0;
-                            $droppercent=0;
-                        @endphp
+                                $proCategory = request()->query('pro_category');
+                                $productsQuery = App\Models\Product::orderBy('created_at', 'asc');
 
-                        <!-- Table rows with data -->
-                        @foreach($products as $product)
-                            @php
-                                $count++;
-                                $droppercent= (($product->pro_price -$product->pro_sprice)/$product->pro_price)*100; 
+                                // If pro_category is set, filter products by pro_category
+                                if ($proCategory) {
+                                    $productsQuery->where('main_category', $proCategory);
+                                }
+
+                                $products = $productsQuery->get();
+                                $count = 0;
+                                $droppercent = 0;
                             @endphp
-                            
-                           
+
+                            <!-- Table rows with data -->
+                            @foreach($products as $product)
+                                @php
+                                    $count++;
+                                    $droppercent = (($product->pro_price - $product->pro_sprice) / $product->pro_price) * 100;
+                                @endphp
             
 
                             <div class="col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
@@ -395,27 +424,35 @@
                                    
                                     <div class="filter-related">
                                     @php
-                                    $relpro = App\Models\Product::orderBy('created_at', 'asc')->take(3)->get();
-                                                            
-                                         $count=0;
-                                         @endphp
-                                        <!-- Table rows with data -->
-                                     @foreach( $relpro as $relpro)
-                                         @php
-                                           $count++;
-                                            @endphp
+                                $proCategory = request()->query('pro_category');
+                                $productsQuery = App\Models\Product::orderBy('created_at', 'asc');
+
+                                // If pro_category is set, filter products by pro_category
+                                if ($proCategory) {
+                                    $productsQuery->where('main_category', $proCategory);
+                                }
+
+                                $products = $productsQuery->get();
+                                $count = 0;
+                                $droppercent = 0;
+                            @endphp
+
+                            <!-- Table rows with data -->
+                            @foreach($products as $product)
+                                @php
+                                    $count++;
+                                    $droppercent = (($product->pro_price - $product->pro_sprice) / $product->pro_price) * 100;
+                                @endphp
                                         <div class="related-item d-flex">
                                             <div class="related-img-wrapper">
-                                                <img class="related-img" src="{{ asset('uploads/'. $relpro->pro_img1) }}"
+                                                <img class="related-img" src="{{ asset('uploads/'. $product->pro_img1) }}"
                                                     alt="img">
                                             </div>
                                             <div class="related-product-info">
                                                 <h2 class="related-heading heading_18">
-                                                    <a href="product.html">{{ $relpro->pro_title }}</a>
+                                                    <a href="product.html">{{ $product->pro_title }}</a>
                                                 </h2>
-                                                <h4 class="related-heading heading_18">
-                                                    <a href="product.html">{{ $relpro->pro_title }}</a>
-                                                </h4>
+                                                
                                                 <div
                                                     class="related-review-icon product-icon-star d-flex align-items-center">
                                                     <img src="{{('main_view/assets/img/icon/star.png')}}" alt="img">
@@ -424,7 +461,7 @@
                                                     <img src="{{('main_view/assets/img/icon/star.png')}}" alt="img">
                                                     <img src="{{('main_view/assets/img/icon/star.png')}}" alt="img">
                                                 </div>
-                                                <p class="related-price text_16">{{ $relpro->pro_sprice }}</p>
+                                                <p class="related-price text_16">{{ $product->pro_sprice }}</p>
                                             </div>
                                         </div>
                                         

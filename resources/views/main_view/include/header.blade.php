@@ -49,34 +49,13 @@
                                     <ul class="currency-list dropdown-menu dropdown-menu-end px-2">
                                         <li class="currency-list-item ">
                                             <a class="currency-list-option" href="#" data-value="USD">
-                                                <img class="flag" src="{{asset('main_view/assets/img/flag/usd.jpg')}}" alt="img">
-                                                <span>USD</span>
+                                                <img class="flag" src="{{asset('main_view/assets/img/flag/BD.jpg')}}" alt="img">
+                                                <span>BDT</span>
                                             </a>
                                         </li>
-                                        <li class="currency-list-item ">
-                                            <a class="currency-list-option" href="#" data-value="CAD">
-                                                <img class="flag" src="{{asset('main_view/assets/img/flag/cad.jpg')}}" alt="img">
-                                                <span>CAD</span>
-                                            </a>
-                                        </li>
-                                        <li class="currency-list-item ">
-                                            <a class="currency-list-option" href="#" data-value="EUR">
-                                                <img class="flag" src="{{asset('main_view/assets/img/flag/eur.jpg')}}" alt="img">
-                                                <span>EUR</span>
-                                            </a>
-                                        </li>
-                                        <li class="currency-list-item ">
-                                            <a class="currency-list-option" href="#" data-value="JPY">
-                                                <img class="flag" src="{{asset('main_view/assets/img/flag/jpy.jpg')}}" alt="img">
-                                                <span>JPY</span>
-                                            </a>
-                                        </li>
-                                        <li class="currency-list-item ">
-                                            <a class="currency-list-option" href="#" data-value="GBP">
-                                                <img class="flag" src="{{asset('main_view/assets/img/flag/gbp.jpg')}}" alt="img">
-                                                <span>GBP</span>
-                                            </a>
-                                        </li>
+                                        
+                                       
+                                    
                                     </ul>
                                 </div>
                             </div>
@@ -126,10 +105,10 @@
                                             @endphp
                                      <li class="menu-list-item nav-item has-megamenu">
                                         <div class="mega-menu-header">
-                                            <a class="nav-link" href="{{route('search.product')}}">
-                                            {{ $category->proCat_name }}
-                                            </a>
-                                            <span class="open-submenu">
+                                        <a class="nav-link" id="pro_category" name="pro_category" value="{{ $category->id }}" href="{{ route('search.product', ['pro_category' => $category->id]) }}">
+                                                    {{ $category->proCat_name }}
+                                                </a>
+                                                <span class="open-submenu">
                                                 <svg class="icon icon-dropdown" xmlns="http://www.w3.org/2000/svg"
                                                     width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"

@@ -173,7 +173,7 @@
                 <div class="collection-tab-inner mt-0">
                     <div class="container">
                         <div class="grid-container-2">
-                            <a class="grid-item grid-item-1 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
+                            <a class="grid-item grid-item-1 position-relative rounded mt-0 d-flex"  href="{{ route('search.product', ['pro_category' => 6]) }}"
                                 data-aos="fade-right" data-aos-duration="700">
                                 <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro1.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="grid-item grid-item-2 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
+                            <a class="grid-item grid-item-2 position-relative rounded mt-0 d-flex" href="{{ route('search.product', ['pro_category' => 7]) }}"
                                 data-aos="fade-right" data-aos-duration="700">
                                 <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro2.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">
@@ -203,7 +203,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="grid-item grid-item-3 position-relative rounded mt-0 d-flex" href="collection-left-sidebar.html"
+                            <a class="grid-item grid-item-3 position-relative rounded mt-0 d-flex" href="{{ route('search.product', ['pro_category' => 5]) }}"
                                 data-aos="fade-left" data-aos-duration="700">
                                 <img class="banner-img rounded" src="{{asset('main_view/assets/img/slideshow/pro3.jpg')}}" alt="banner-1">
                                 <div class="content-absolute content-slide">

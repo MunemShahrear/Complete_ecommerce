@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="meta description">
     <link rel="shortcut icon" href="{{asset('../../main_view/assets/img/favicon.png')}}" type="image/x-icon">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- all css -->
     @include('main_view.include.css')
 </head>
@@ -291,12 +291,16 @@
                                     <div id="filter-collection" class="accordion-collapse collapse show">
                                         <ul class="filter-lists list-unstyled mb-0">
                                         @php
-                                        $cats = App\Models\Probrand::orderBy('created_at', 'asc')->get();
+                                      //  $cats = App\Models\Probrand::orderBy('created_at', 'asc')->get();
+                                       // $cat = App\Models\Product::distinct()->where('main_category',$category->id)->join('probrands', 'products.pro_brand', '=', 'probrands.id')->get();
+                                        $dog = App\Models\Probrand::where('main_Cat',$proCategory)->join('brandcats', 'probrands.id', '=', 'brandcats.brand_id')->get();
+                                      
                                         
                                             $count=0;
                                         @endphp
-                                            <!-- Table rows with data -->
-                                            @foreach( $cats as $category)
+                                            <!-- Table rows with data -->....
+
+                                            @foreach( $dog as $category)
                                             @php
                                         
                                             $count++;
@@ -306,7 +310,7 @@
                                         
                                         <li class="filter-item">
                                                 <label class="filter-label">
-                                                    <input type="checkbox" />
+                                                    <input type="checkbox" class="category-checkbox" value="{{ $category }}"/>
                                                     <span class="filter-checkbox rounded me-2"></span>
                                                     <span class="filter-text">{{ $category->brand_name }}</span>
                                                 </label>
@@ -1592,6 +1596,42 @@
         <!-- all js -->
         @include('main_view.include.script')
         @include('main_view.include.css')
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('.category-checkbox').change(function () {
+                var selectedCategories = [];
+                $('.category-checkbox:checked').each(function () {
+                    selectedCategories.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '/items/filter',
+                    type: 'POST',
+                    data: {
+                        categories: selectedCategories
+                    },
+                    success: function (response) {
+                        // Update the list with filtered items
+                        var itemList = $('#itemList');
+                        itemList.empty();
+
+                        response.items.forEach(function (item) {
+                            itemList.append('<li>' + item.name + ' - ' + item.category + '</li>');
+                        });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
         <script src="{{asset('main_view/assets/js/main.js')}}"></script>
         <script src="{{asset('main_view/assets/js/vendor.js')}}"></script>
         <!-- <script src="assets/js/vendor.js"></script>

@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('product/create', [ProductController::class, 'createProduct'])->name('create.product');
     Route::post('product/destroy', [ProductController::class,'destroyProduct'])->name('destroy.product');
+   
 
     //Manage product Sub category start here 
 
@@ -118,6 +119,7 @@ Route::middleware('auth')->group(function () {
     //blog route end
     
     //Category route Start
+    
     Route::post('/create/category', [CategoryController::class, 'category'])->name('blog.category');
     Route::post('/category/{id}', [CategoryController::class,'destroy'])->name('category.destroy');
     
@@ -166,3 +168,5 @@ Route::middleware('auth')->group(function () {
         Route::post('/logout', [ProfileController::class, 'destroy'])->name('logout');
   
     });
+    Route::post('/items/filter', [ProductController::class,'filterProduct']);
+   

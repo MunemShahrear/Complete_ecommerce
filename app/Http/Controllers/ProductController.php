@@ -51,4 +51,26 @@ class ProductController extends Controller
                 // Redirect back with a success message
                 return redirect()->route('all.product')->with('success', 'Product deleted successfully.');
             }
+    public function filterProduct(Request $request)
+            {
+                $selectedCategories = $request->categories;
+               // dd($selectedCategories[0]);
+               $idArray = [];
+               foreach($selectedCategories as $category){
+                $data = json_decode($category, true);
+                $idArray = $data['id'];
+               }
+              // dd($idArray);
+               
+                $query = Product::query();
+        
+                if (!empty($selectedCategories)) {
+                    $query->whereIn('pro_brand', $idArray);
+                }
+        
+                $filteredItems = $query->get();
+                dd($filteredItems);
+        
+                return response()->json(['products' => $filteredItems]);
+            }        
 }

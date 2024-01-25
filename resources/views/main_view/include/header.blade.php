@@ -75,7 +75,7 @@
                         <div class="col-lg-3 col-md-4 col-4">
                             <div class="header-logo">
                                 <a href="{{route('home')}}" class="logo-main">
-                                    <img src="{{asset('main_view/assets/img/logo.png')}}" style="width:50%;margin:2px;"loading="lazy" alt="Umbrella Technology">
+                                    {{-- <img src="{{asset('main_view/assets/img/logo.png')}}" style="width:50%;margin:2px;"loading="lazy" alt="Umbrella Technology"> --}}
                                 </a>
                             </div>
                         </div>
@@ -171,7 +171,11 @@
                                                             <ul class="megamenu list-unstyled">
                                                                
                                                             @php
-                                                            $brand = App\Models\proBrand::orderBy('created_at', 'asc')->get();
+                                                            $brand = App\Models\Probrand::where('main_Cat', $category->id)->join('brandcats', 'probrands.id', '=', 'brandcats.brand_id')->get();
+                                                            // $cat = App\Models\Product::distinct()->where('main_category',$category->id)->join('probrands', 'products.pro_brand', '=', 'probrands.id')->get();
+                                                            // $dog = App\Models\proBrand::distinct()->join('products', 'probrands.id', '=', 'products.pro_brand')->where('main_category',$category->id)->get();
+                                                            //dd($cat);
+                                                            
                                                             
                                                                 $count=0;
                                                             @endphp
@@ -183,7 +187,7 @@
                                                                 @endphp
                                                              
                                                             
-                                                            <li class="menu-list-item nav-item-sub">
+                                                               <li class="menu-list-item nav-item-sub">
                                                                     <a class="nav-link-sub nav-text-sub"
                                                                         href="product.html">{{ $brands->brand_name }}</a>
                                                                 </li>
